@@ -4,7 +4,7 @@
     "type": "library",
     "require": {
         "php": ">=7.4.3",
-        "guzzlehttp/guzzle": "7.4.x-dev"
+        "guzzlehttp/guzzle": "dev-master"
     },
     "require-dev": {
     },

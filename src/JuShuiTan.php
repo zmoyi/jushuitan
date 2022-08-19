@@ -84,7 +84,9 @@ class JuShuiTan
         $sign = $this->get_sign($data);
         try {
             $data['sign'] = $sign;
-            $response =  $this->client->post($this->getTokenUrl,$data);
+            $response =  $this->client->post($this->getTokenUrl, [
+                'form_params' => $data
+            ]);
             return $response->getBody();
         } catch (GuzzleException $e) {
             return $e;

@@ -1,0 +1,24 @@
+{
+    "name": "zmoyi/jushuitan",
+    "description": "聚水潭-php-sdk",
+    "type": "library",
+    "require": {
+        "php": ">=7.4.3",
+        "guzzlehttp/guzzle": "7.4.x-dev"
+    },
+    "require-dev": {
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "jushuitan\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "墨子熙",
+            "email": "zmszm666@163.com"
+        }
+    ],
+    "minimum-stability": "dev"
+}

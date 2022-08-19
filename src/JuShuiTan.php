@@ -57,7 +57,7 @@ class JuShuiTan
     public function createUrl(): string
     {
         $data = [
-            'app_key' => $this->getConfig()['app_key'],
+            'app_key' => $this->getConfig()['app_Key'],
             'timestamp' => time(),
             'charset' => $this->getConfig()['charset']
         ];

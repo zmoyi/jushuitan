@@ -4,6 +4,7 @@ namespace jushuitan\Api;
 
 use Exception;
 use GuzzleHttp\Exception\GuzzleException;
+use jushuitan\Api\common\BaseApi;
 use jushuitan\Api\common\Client;
 use jushuitan\Api\common\ServeHttp;
 use jushuitan\Api\common\Util;

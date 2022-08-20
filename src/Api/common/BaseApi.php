@@ -1,9 +1,7 @@
 <?php
 
-namespace jushuitan\Api;
+namespace jushuitan\Api\common;
 
-use jushuitan\Api\common\Client;
-use jushuitan\Api\common\Util;
 use jushuitan\JuShuiTan;
 
 class BaseApi extends JuShuiTan

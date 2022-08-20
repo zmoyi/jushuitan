@@ -2,10 +2,7 @@
 
 namespace jushuitan\Api\common;
 
-use MyCLabs\Enum\Enum;
-
-
-final class ServeHttp extends Enum
+final class ServeHttp
 {
     /**
      * 基础API路由
@@ -59,6 +56,7 @@ final class ServeHttp extends Enum
     /**
      * 组合装商品查询
      */
+
 
 
 }

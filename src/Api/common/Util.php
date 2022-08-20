@@ -1,6 +1,6 @@
 <?php
 
-namespace jushuitan\Api;
+namespace jushuitan\Api\common;
 
 use jushuitan\JuShuiTan;
 

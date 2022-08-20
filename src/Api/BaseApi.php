@@ -2,6 +2,8 @@
 
 namespace jushuitan\Api;
 
+use jushuitan\Api\common\Client;
+use jushuitan\Api\common\Util;
 use jushuitan\JuShuiTan;
 
 class BaseApi extends JuShuiTan

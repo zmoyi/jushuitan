@@ -4,8 +4,8 @@ namespace jushuitan\Auth;
 
 use Exception;
 use GuzzleHttp\Exception\GuzzleException;
-use jushuitan\Api\Client;
-use jushuitan\Api\Util;
+use jushuitan\Api\common\Client;
+use jushuitan\Api\common\Util;
 use jushuitan\JuShuiTan;
 use Psr\Http\Message\StreamInterface;
 

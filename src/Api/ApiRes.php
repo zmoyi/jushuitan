@@ -9,6 +9,7 @@ class ApiRes extends JuShuiTan
     {
         parent::__construct();
         parent::setConfig($config);
+        parent::setPublicRequestParams();
     }
 
     public function queryShops(): array

@@ -50,7 +50,7 @@ class JuShuiTan
     /**
      * @return array
      */
-    protected function getConfig(): array
+    public function getConfig(): array
     {
         return $this->config;
     }
@@ -73,7 +73,7 @@ class JuShuiTan
     /**
      * 生成签名
      */
-    protected function get_sign($data): ?string
+    public function get_sign($data): ?string
     {
         if ($data == null) {
             return null;

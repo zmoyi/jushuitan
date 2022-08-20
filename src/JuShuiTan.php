@@ -2,15 +2,17 @@
 
 namespace jushuitan;
 
+use Exception;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\GuzzleException;
+use Psr\Http\Message\StreamInterface;
 
 class JuShuiTan
 {
     /**
-     * api配置
+     * @var array
      */
-    protected  array $config = [
+    protected array $config = [
         'authUrl' => 'https://openweb.jushuitan.com/auth',
         'baseUrl' => '',
         'app_Key' => '',
@@ -18,12 +20,24 @@ class JuShuiTan
         'version' => 2,
         'charset' => 'utf-8'
     ];
-    private $client;
     /**
-     * 定义获取access_token接口
+     * @var Client
      */
-    protected  string $getTokenUrl = 'https://openapi.jushuitan.com/openWeb/auth/accessToken';
+    private Client $client;
 
+    /**
+     * @var string
+     */
+    protected string $getTokenUrl = 'https://openapi.jushuitan.com/openWeb/auth/accessToken';
+
+    /**
+     * @var string
+     */
+    protected string $refreshTokenUrl = 'https://openapi.jushuitan.com/openWeb/auth/refreshToken';
+
+    /**
+     * 构造器
+     */
     public function __construct()
     {
         $this->client = new Client([
@@ -33,6 +47,7 @@ class JuShuiTan
             ]
         ]);
     }
+
     /**
      * @return array
      */
@@ -52,7 +67,10 @@ class JuShuiTan
     }
 
     /**
-     * 业务授权URL拼装
+     * 生成授权链接
+     * @fun createUrl
+     * @date 2022/8/20
+     * @author 刘铭熙
      */
     public function createUrl(): string
     {
@@ -69,8 +87,14 @@ class JuShuiTan
             '&sign=' . $sign;
     }
 
+
     /**
-     * 使用code换取access_token
+     * 获取访问令牌
+     * @fun getAccessToken
+     * @param $code
+     * @return Exception|GuzzleException|StreamInterface
+     * @date 2022/8/20
+     * @author 刘铭熙
      */
     public function getAccessToken($code)
     {
@@ -84,7 +108,39 @@ class JuShuiTan
         $sign = $this->get_sign($data);
         try {
             $data['sign'] = $sign;
-            $response =  $this->client->post($this->getTokenUrl, [
+            $response = $this->client->post($this->getTokenUrl, [
+                'form_params' => $data
+            ]);
+            return $response->getBody();
+        } catch (GuzzleException $e) {
+            return $e;
+        }
+    }
+
+    /**
+     * 更新授权令牌
+     * @fun refreshToken
+     * @param $refresh_token
+     * @return Exception|GuzzleException|StreamInterface
+     * @date 2022/8/20
+     * @author 刘铭熙
+     */
+    public function refreshToken($refresh_token)
+    {
+        $data = [
+            'app_key' => $this->getConfig()['app_Key'],
+            'timestamp' => time(),
+            'grant_type' => 'refresh_token',
+            'charset' => $this->getConfig()['charset'],
+            'refresh_token' => $refresh_token,
+            'scope' => 'all',
+        ];
+
+        $sign = $this->get_sign($data);
+
+        try {
+            $data['sign'] = $sign;
+            $response = $this->client->post($this->refreshTokenUrl, [
                 'form_params' => $data
             ]);
             return $response->getBody();
@@ -109,7 +165,7 @@ class JuShuiTan
                 $result_str = $result_str . $key . $val;
             }
         }
-        $result_str = $this->getConfig()['app_Secret']. $result_str;
+        $result_str = $this->getConfig()['app_Secret'] . $result_str;
         return bin2hex(md5($result_str, true));
     }
 }

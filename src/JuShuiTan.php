@@ -10,6 +10,7 @@ use Psr\Http\Message\StreamInterface;
 class JuShuiTan
 {
     /**
+     * 全局config配置
      * @var array
      */
     protected array $config = [
@@ -23,22 +24,28 @@ class JuShuiTan
     ];
 
     /**
+     * Client请求
      * @var Client
      */
     protected Client $client;
 
     /**
+     * 定义获取access—token Url
      * @var string
      */
     protected string $getTokenUrl = 'https://openapi.jushuitan.com/openWeb/auth/accessToken';
 
     /**
+     * 定义refresh-token地址
      * @var string
      */
     protected string $refreshTokenUrl = 'https://openapi.jushuitan.com/openWeb/auth/refreshToken';
 
     protected function __construct()
     {
+        /**
+         * 初始化Client请求
+         */
         $this->client = new Client([
             'verify' => false,
             'headers' => [
@@ -48,6 +55,7 @@ class JuShuiTan
     }
 
     /**
+     * 获取config配置
      * @return array
      */
     public function getConfig(): array
@@ -56,13 +64,14 @@ class JuShuiTan
     }
 
     /**
+     * 设置config配置
      * @param array $config
      * @return JuShuiTan
      */
     protected function setConfig(array $config): JuShuiTan
     {
-        if (isset($config['authUrl'], $config['app_Key'], $config['app_Secret'], $config['baseUrl'],$config['access_token'])) {
-            $this->config['authUrl'] = $config['authUrl'];
+        if (isset($config['app_Key'], $config['app_Secret'], $config['baseUrl'],$config['access_token'])) {
+
             $this->config['access_token'] = $config['access_token'];
             $this->config['baseUrl'] = $config['baseUrl'];
             $this->config['app_Key'] = $config['app_Key'];

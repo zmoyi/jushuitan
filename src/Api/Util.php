@@ -10,7 +10,6 @@ class Util
 
     /**
      * @param JuShuiTan $juShuiTan
-     * @param $app_Secret
      */
     public static function setParams(JuShuiTan $juShuiTan): void
     {
@@ -26,10 +25,11 @@ class Util
     public static function getParams($app_Secret, array $biz): array
     {
         $data = self::$params;
-        $data['sign'] = self::get_sign($app_Secret, $data);
         $data['biz'] = !empty($biz) ? json_encode($biz) : '{}';
+        $data['sign'] = self::get_sign($app_Secret, $data);
         return $data;
     }
+
     /**
      * 生成签名
      */

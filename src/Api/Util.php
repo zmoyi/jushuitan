@@ -19,6 +19,7 @@ class Util extends JuShuiTan
     public static function setParams(array $params): array
     {
         $parent = new parent();
+        $parent->setPublicRequestParams();
         $data = $parent->getPublicRequestParams();
         $signOrbiz = [
             'sign' => $parent->get_sign($data),

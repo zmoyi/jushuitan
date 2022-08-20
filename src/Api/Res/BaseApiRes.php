@@ -1,9 +1,13 @@
 <?php
 
-namespace jushuitan\Api;
+namespace jushuitan\Api\Res;
 
 use Exception;
 use GuzzleHttp\Exception\GuzzleException;
+use jushuitan\Api\BaseApi;
+use jushuitan\Api\Client;
+use jushuitan\Api\ServeHttp;
+use jushuitan\Api\Util;
 
 class BaseApiRes extends BaseApi
 {

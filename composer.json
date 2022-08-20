@@ -11,7 +11,7 @@
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "jushuitan\\": "src/"
+            "jushuitan\\Api\\": "src/"
         }
     },
     "authors": [

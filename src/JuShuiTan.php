@@ -61,8 +61,9 @@ class JuShuiTan
      */
     protected function setConfig(array $config): JuShuiTan
     {
-        if (isset($config['authUrl'], $config['app_Key'], $config['app_Secret'], $config['baseUrl'])) {
+        if (isset($config['authUrl'], $config['app_Key'], $config['app_Secret'], $config['baseUrl'],$config['access_token'])) {
             $this->config['authUrl'] = $config['authUrl'];
+            $this->config['access_token'] = $config['access_token'];
             $this->config['baseUrl'] = $config['baseUrl'];
             $this->config['app_Key'] = $config['app_Key'];
             $this->config['app_Secret'] = $config['app_Secret'];

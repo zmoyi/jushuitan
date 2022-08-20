@@ -60,10 +60,11 @@ class JuShuiTan
      */
     public function setConfig(array $config): JuShuiTan
     {
-        $this->config['authUrl'] = $config['authUrl'];
-        $this->config['app_Key'] = $config['app_Key'];
-        $this->config['app_Secret'] = $config['app_Secret'];
-
+        if (isset($config['authUrl'],$config['app_Key'],$config['app_Secret'])){
+            $this->config['authUrl'] = $config['authUrl'];
+            $this->config['app_Key'] = $config['app_Key'];
+            $this->config['app_Secret'] = $config['app_Secret'];
+        }
         return $this;
     }
 

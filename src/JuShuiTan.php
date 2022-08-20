@@ -20,10 +20,11 @@ class JuShuiTan
         'version' => 2,
         'charset' => 'utf-8'
     ];
+
     /**
      * @var Client
      */
-    private Client $client;
+    protected Client $client;
 
     /**
      * @var string
@@ -35,9 +36,6 @@ class JuShuiTan
      */
     protected string $refreshTokenUrl = 'https://openapi.jushuitan.com/openWeb/auth/refreshToken';
 
-    /**
-     * 构造器
-     */
     public function __construct()
     {
         $this->client = new Client([
@@ -62,7 +60,10 @@ class JuShuiTan
      */
     public function setConfig(array $config): JuShuiTan
     {
-        $this->config = $config;
+        $this->config['authUrl'] = $config['authUrl'];
+        $this->config['app_Key'] = $config['app_Key'];
+        $this->config['app_Secret'] = $config['app_Secret'];
+
         return $this;
     }
 

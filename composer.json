@@ -5,7 +5,8 @@
     "require": {
         "php": ">=7.4.3",
         "guzzlehttp/guzzle": "^7.0@dev",
-        "ext-json": "*"
+        "ext-json": "*",
+        "myclabs/php-enum": "dev-master"
     },
     "license": "MIT",
     "autoload": {

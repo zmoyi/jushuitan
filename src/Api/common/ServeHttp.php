@@ -2,7 +2,9 @@
 
 namespace jushuitan\Api\common;
 
-class ServeHttp
+use MyCLabs\Enum\Enum;
+
+class ServeHttp extends Enum
 {
     /**
      * 基础API路由

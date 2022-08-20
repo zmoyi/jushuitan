@@ -15,6 +15,7 @@ class JuShuiTan
     protected array $config = [
         'authUrl' => 'https://openweb.jushuitan.com/auth',
         'baseUrl' => '',
+        'access_token' => '',
         'app_Key' => '',
         'app_Secret' => '',
         'version' => 2,
@@ -36,7 +37,7 @@ class JuShuiTan
      */
     protected string $refreshTokenUrl = 'https://openapi.jushuitan.com/openWeb/auth/refreshToken';
 
-    public function __construct()
+    protected function __construct()
     {
         $this->client = new Client([
             'verify' => false,
@@ -49,7 +50,7 @@ class JuShuiTan
     /**
      * @return array
      */
-    public function getConfig(): array
+    protected function getConfig(): array
     {
         return $this->config;
     }
@@ -58,10 +59,11 @@ class JuShuiTan
      * @param array $config
      * @return JuShuiTan
      */
-    public function setConfig(array $config): JuShuiTan
+    protected function setConfig(array $config): JuShuiTan
     {
-        if (isset($config['authUrl'],$config['app_Key'],$config['app_Secret'])){
+        if (isset($config['authUrl'], $config['app_Key'], $config['app_Secret'], $config['baseUrl'])) {
             $this->config['authUrl'] = $config['authUrl'];
+            $this->config['baseUrl'] = $config['baseUrl'];
             $this->config['app_Key'] = $config['app_Key'];
             $this->config['app_Secret'] = $config['app_Secret'];
         }

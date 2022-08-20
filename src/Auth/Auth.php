@@ -11,8 +11,8 @@ class Auth extends JuShuiTan
 {
     public function __construct($config)
     {
-        parent::__construct();
         parent::setConfig($config);
+        parent::__construct();
     }
 
     /**

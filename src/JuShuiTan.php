@@ -37,7 +37,7 @@ class JuShuiTan
      */
     protected string $refreshTokenUrl = 'https://openapi.jushuitan.com/openWeb/auth/refreshToken';
 
-    private function __construct()
+    protected function __construct()
     {
         $this->client = new Client([
             'verify' => false,
@@ -73,7 +73,7 @@ class JuShuiTan
     /**
      * 生成签名
      */
-    public function get_sign($data): ?string
+    protected function get_sign($data): ?string
     {
         if ($data == null) {
             return null;

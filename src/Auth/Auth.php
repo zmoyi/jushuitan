@@ -9,6 +9,11 @@ use Psr\Http\Message\StreamInterface;
 
 class Auth extends JuShuiTan
 {
+    public function __construct()
+    {
+        parent::__construct();
+    }
+
     /**
      * 生成授权链接
      * @fun createUrl

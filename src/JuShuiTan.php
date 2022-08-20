@@ -2,10 +2,7 @@
 
 namespace jushuitan;
 
-use Exception;
 use GuzzleHttp\Client;
-use GuzzleHttp\Exception\GuzzleException;
-use Psr\Http\Message\StreamInterface;
 
 class JuShuiTan
 {
@@ -24,6 +21,18 @@ class JuShuiTan
     ];
 
     /**
+     * 公共请求参数
+     * @var array|string[]
+     */
+    protected array $public_request_params = [
+        'app_key' => '',
+        'access_token' => '',
+        'timestamp' => '',
+        'charset' => '',
+        'version' => '',
+    ];
+
+    /**
      * Client请求
      * @var Client
      */
@@ -33,7 +42,7 @@ class JuShuiTan
      * 定义获取access—token Url
      * @var string
      */
-    protected string $getTokenUrl = 'https://openapi.jushuitan.com/openWeb/auth/accessToken';
+    protected string $getAccessTokenUrl = 'https://openapi.jushuitan.com/openWeb/auth/accessToken';
 
     /**
      * 定义refresh-token地址
@@ -80,6 +89,31 @@ class JuShuiTan
         return $this;
     }
 
+    /**
+     * 获取公共参数
+     * @return array
+     */
+    public function getPublicRequestParams(): array
+    {
+        return $this->public_request_params;
+    }
+
+    /**
+     * 设置公共参数
+     */
+    public function setPublicRequestParams(): JuShuiTan
+    {
+        if (isset($this->getConfig()['app_Key'], $this->getConfig()['access_token'])){
+            $this->public_request_params = [
+               'app_key' => $this->config['app_Key'],
+               'access_token' =>  $this->config['access_token'],
+               'timestamp' => time(),
+               'charset' => $this->config['charset'],
+               'version' => $this->config['version'],
+           ];
+        }
+       return $this;
+    }
     /**
      * 生成签名
      */

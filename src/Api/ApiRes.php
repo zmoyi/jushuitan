@@ -11,4 +11,9 @@ class ApiRes extends JuShuiTan
         parent::setConfig($config);
     }
 
+    public function queryShops(): array
+    {
+       return $this->getPublicRequestParams();
+    }
+
 }

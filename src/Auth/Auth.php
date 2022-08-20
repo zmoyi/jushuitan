@@ -57,7 +57,7 @@ class Auth extends JuShuiTan
         $sign = $this->get_sign($data);
         try {
             $data['sign'] = $sign;
-            $response = $this->client->post($this->getTokenUrl, [
+            $response = $this->client->post($this->getAccessTokenUrl, [
                 'form_params' => $data
             ]);
             return $response->getBody();

@@ -24,4 +24,12 @@ class ApiRes extends JuShuiTan
         }
         return $this;
     }
+
+    /**
+     * @return array
+     */
+    public function getConfig(): array
+    {
+        return $this->config;
+    }
 }

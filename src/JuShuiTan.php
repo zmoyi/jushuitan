@@ -111,6 +111,8 @@ class JuShuiTan
                'timestamp' => time(),
                'charset' => $this->config['charset'],
                'version' => $this->config['version'],
+                'sign' => '',
+                'biz' => '{}'
            ];
         }
        return $this;

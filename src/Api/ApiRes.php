@@ -20,7 +20,7 @@ class ApiRes extends JuShuiTan
     {
         if (isset($config['access_token'])){
             parent::setConfig($config);
-            $this->config['access_token'] = $config;
+            $this->config['access_token'] = $config['access_token'];
         }
         return $this;
     }

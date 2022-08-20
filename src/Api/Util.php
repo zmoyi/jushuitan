@@ -12,20 +12,21 @@ class Util
      * @param JuShuiTan $juShuiTan
      * @param $app_Secret
      */
-    public static function setParams(JuShuiTan $juShuiTan, $app_Secret): void
+    public static function setParams(JuShuiTan $juShuiTan): void
     {
         $data = $juShuiTan->getPublicRequestParams();
-        $data['sign'] = self::get_sign($app_Secret, $data);
         self::$params = $data;
     }
 
     /**
+     * @param $app_Secret
      * @param array $biz
      * @return array
      */
-    public static function getParams(array $biz): array
+    public static function getParams($app_Secret, array $biz): array
     {
         $data = self::$params;
+        $data['sign'] = self::get_sign($app_Secret, $data);
         $data['biz'] = !empty($biz) ? json_encode($biz) : '{}';
         return $data;
     }

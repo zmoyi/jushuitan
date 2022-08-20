@@ -2,39 +2,57 @@
 
 namespace jushuitan\Api;
 
-use jushuitan\JuShuiTan;
+use GuzzleHttp\Client as Clients;
+use GuzzleHttp\Exception\GuzzleException;
 
-class Client extends JuShuiTan
+class Client
 {
-    private static Client $clients;
-    public function __construct($config)
-    {
-        parent::setConfig($config);
-        parent::__construct();
-        self::setClients($this->client);
+    protected static string $url;
 
+    public static function post($url, $data)
+    {
+        return Client::sendRequest($url, $data);
     }
 
-    public static function post($url, $data){
-        return Client::getClient()->post($url,[
-            'form_params' => Util::getParams($data)
+    private static function sendRequest($url, array $options)
+    {
+        $client = new Clients([
+            'base_uri' => self::getUrl(),
+            'verify' => false,
+            'headers' => [
+                'Content-Type' => 'application/x-www-form-urlencoded;charset=UTF-8'
+            ]
         ]);
+        try {
+            $request = $client->request('POST', $url,[
+                'form_params' => $options
+            ]);
+            $contents = $request->getBody()->getContents();
+            return json_decode($contents, true);
+        } catch (GuzzleException $e) {
+            $response = [
+                'code' => $e->getCode(),
+                'msg' => $e->getMessage()
+            ];
+            return json_encode($response);
+        }
     }
 
     /**
-     * @return Client
+     * @param string $url
      */
-    public static function getClient(): Client
+    public static function setUrl(string $url): void
     {
-        return self::$clients;
+        self::$url = $url;
     }
 
     /**
-     * @param mixed $clients
+     * @return string
      */
-    public static function setClients($clients): void
+    public static function getUrl(): string
     {
-        self::$clients = $clients;
+        return self::$url;
     }
+
 
 }

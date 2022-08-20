@@ -50,20 +50,6 @@ class JuShuiTan
      */
     protected string $refreshTokenUrl = 'https://openapi.jushuitan.com/openWeb/auth/refreshToken';
 
-    protected function __construct()
-    {
-        /**
-         * 初始化Client请求
-         */
-        $this->client = new Client([
-            'base_uri'  =>  $this->config['baseUrl'],
-            'verify' => false,
-            'headers' => [
-                'Content-Type' => 'application/x-www-form-urlencoded;charset=UTF-8'
-            ]
-        ]);
-    }
-
     /**
      * 获取config配置
      * @return array
@@ -111,8 +97,6 @@ class JuShuiTan
                'timestamp' => time(),
                'charset' => $this->config['charset'],
                'version' => $this->config['version'],
-                'sign' => '',
-                'biz' => '{}'
            ];
         }
        return $this;

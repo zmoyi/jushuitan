@@ -4,6 +4,7 @@ namespace jushuitan\Auth;
 
 use Exception;
 use GuzzleHttp\Exception\GuzzleException;
+use jushuitan\Api\Client;
 use jushuitan\JuShuiTan;
 use Psr\Http\Message\StreamInterface;
 
@@ -12,7 +13,6 @@ class Auth extends JuShuiTan
     public function __construct($config)
     {
         parent::setConfig($config);
-        parent::__construct();
     }
 
     /**
@@ -54,16 +54,8 @@ class Auth extends JuShuiTan
             'charset' => $this->getConfig()['charset'],
             'code' => $code,
         ];
-        $sign = $this->get_sign($data);
-        try {
-            $data['sign'] = $sign;
-            $response = $this->client->post($this->getAccessTokenUrl, [
-                'form_params' => $data
-            ]);
-            return $response->getBody();
-        } catch (GuzzleException $e) {
-            return $e;
-        }
+        $data['sign'] = $this->get_sign($data);
+        return Client::post($this->getAccessTokenUrl, $data);
     }
 
     /**
@@ -87,14 +79,7 @@ class Auth extends JuShuiTan
 
         $sign = $this->get_sign($data);
 
-        try {
-            $data['sign'] = $sign;
-            $response = $this->client->post($this->refreshTokenUrl, [
-                'form_params' => $data
-            ]);
-            return $response->getBody();
-        } catch (GuzzleException $e) {
-            return $e;
-        }
+        $data['sign'] = $this->get_sign($data);
+        return Client::post($this->refreshTokenUrl, $data);
     }
 }

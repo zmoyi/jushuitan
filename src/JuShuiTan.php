@@ -37,7 +37,7 @@ class JuShuiTan
      */
     protected string $refreshTokenUrl = 'https://openapi.jushuitan.com/openWeb/auth/refreshToken';
 
-    protected function __construct()
+    private function __construct()
     {
         $this->client = new Client([
             'verify' => false,

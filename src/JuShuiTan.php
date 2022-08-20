@@ -101,22 +101,4 @@ class JuShuiTan
         }
        return $this;
     }
-    /**
-     * 生成签名
-     */
-    protected function get_sign($data): ?string
-    {
-        if ($data == null) {
-            return null;
-        }
-        ksort($data);
-        $result_str = "";
-        foreach ($data as $key => $val) {
-            if ($key != null && $key != "" && $key != "sign") {
-                $result_str = $result_str . $key . $val;
-            }
-        }
-        $result_str = $this->getConfig()['app_Secret'] . $result_str;
-        return bin2hex(md5($result_str, true));
-    }
 }

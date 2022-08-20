@@ -5,6 +5,7 @@ namespace jushuitan\Auth;
 use Exception;
 use GuzzleHttp\Exception\GuzzleException;
 use jushuitan\Api\Client;
+use jushuitan\Api\Util;
 use jushuitan\JuShuiTan;
 use Psr\Http\Message\StreamInterface;
 
@@ -28,7 +29,7 @@ class Auth extends JuShuiTan
             'timestamp' => time(),
             'charset' => $this->getConfig()['charset']
         ];
-        $sign = $this->get_sign($data);
+        $sign = Util::get_sign($this->getConfig()['app_Secret'],$data);
         return $this->getConfig()['authUrl'] .
             '?app_key=' . $data['app_key'] .
             '&timestamp=' . $data['timestamp'] .
@@ -54,7 +55,7 @@ class Auth extends JuShuiTan
             'charset' => $this->getConfig()['charset'],
             'code' => $code,
         ];
-        $data['sign'] = $this->get_sign($data);
+        $data['sign'] = Util::get_sign($this->getConfig()['app_Secret'],$data);
         return Client::post($this->getAccessTokenUrl, $data);
     }
 
@@ -77,9 +78,7 @@ class Auth extends JuShuiTan
             'scope' => 'all',
         ];
 
-        $sign = $this->get_sign($data);
-
-        $data['sign'] = $this->get_sign($data);
+        $data['sign'] = Util::get_sign($this->getConfig()['app_Secret'],$data);
         return Client::post($this->refreshTokenUrl, $data);
     }
 }

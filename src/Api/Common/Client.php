@@ -1,6 +1,6 @@
 <?php
 
-namespace zmoyi\JuShuiTan\Api\common;
+namespace zmoyi\JuShuiTan\Api\Common;
 
 use GuzzleHttp\Client as Clients;
 use GuzzleHttp\Exception\GuzzleException;

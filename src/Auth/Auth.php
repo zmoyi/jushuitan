@@ -4,8 +4,8 @@ namespace zmoyi\JuShuiTan\Auth;
 
 use Exception;
 use GuzzleHttp\Exception\GuzzleException;
-use zmoyi\JuShuiTan\Api\common\Client;
-use zmoyi\JuShuiTan\Api\common\Util;
+use zmoyi\JuShuiTan\Api\Common\Client;
+use zmoyi\JuShuiTan\Api\Common\Util;
 use zmoyi\JuShuiTan\JuShuiTan;
 use Psr\Http\Message\StreamInterface;
 

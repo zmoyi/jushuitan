@@ -30,7 +30,7 @@ $config = [
 
 ```php
 use zmoyi\JuShuiTan\Api\ApiRequest;
-use zmoyi\JuShuiTan\Api\common\ServeHttp;
+use zmoyi\JuShuiTan\Api\Common\ServeHttp;
 
 $data = [
     'shop_id' => '123456'
@@ -67,11 +67,12 @@ $refToken = $Auth->refreshToken($accessToken);
 ```
 
 ## 路由定义如下
+
 ```php
 /**
 * 调用示例
  */
- \zmoyi\JuShuiTan\Api\common\ServeHttp::QUERY_AFTERSALE_RECEIVED;
+ \zmoyi\JuShuiTan\Api\Common\ServeHttp::QUERY_AFTERSALE_RECEIVED;
   /**
      * 基础API路由
      */

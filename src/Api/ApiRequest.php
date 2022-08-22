@@ -2,9 +2,9 @@
 
 namespace zmoyi\JuShuiTan\Api;
 
-use zmoyi\JuShuiTan\Api\common\BaseApi;
-use zmoyi\JuShuiTan\Api\common\Client;
-use zmoyi\JuShuiTan\Api\common\Util;
+use zmoyi\JuShuiTan\Api\Common\BaseApi;
+use zmoyi\JuShuiTan\Api\Common\Client;
+use zmoyi\JuShuiTan\Api\Common\Util;
 
 class ApiRequest extends BaseApi
 {

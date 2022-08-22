@@ -37,6 +37,7 @@ $data = [
 $apiRequest = new ApiRequest($config);
 /**
 * ServeHttp::XXX为内部定义的接口路由常量
+* 也可以直接传路由地址，如：/open/orders/out/simple/query
 */
 $response = $apiRequest->request(ServeHttp::QUERY_SKUMAP,$data);
 ```

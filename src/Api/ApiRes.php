@@ -7,7 +7,7 @@ use jushuitan\Api\common\Client;
 use jushuitan\Api\common\ServeHttp;
 use jushuitan\Api\common\Util;
 
-class ApiRes extends BaseApi
+class ApiRes extends BaseApi implements ServeHttp
 {
     public function request(ServeHttp $serveHttp, $params)
     {

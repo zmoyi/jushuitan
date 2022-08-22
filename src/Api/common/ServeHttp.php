@@ -2,7 +2,7 @@
 
 namespace jushuitan\Api\common;
 
-class ServeHttp
+interface ServeHttp
 {
     /**
      * 基础API路由

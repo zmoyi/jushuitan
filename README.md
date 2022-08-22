@@ -65,7 +65,11 @@ $refToken = $Auth->refreshToken($accessToken);
 ```
 
 ## 路由定义如下
-```injectablephp
+```php
+/**
+* 调用示例
+ */
+ \zmoyi\JuShuiTan\Api\common\ServeHttp::QUERY_AFTERSALE_RECEIVED;
   /**
      * 基础API路由
      */

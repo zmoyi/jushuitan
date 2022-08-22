@@ -10,7 +10,7 @@ class BaseApi extends JuShuiTan
     {
         parent::setConfig($config);
         parent::setPublicRequestParams();
-        (new Util())->setParams($this);
+        Util::setParams($this);
         Client::setUrl($this->config['baseUrl']);
     }
 }

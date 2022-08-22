@@ -45,7 +45,7 @@ class Util
                 $resultStr = $resultStr . $key . $val;
             }
         }
-        $result_str = $appSecret . $resultStr;
+        $resultStr = $appSecret . $resultStr;
         return bin2hex(md5($resultStr, true));
     }
 }

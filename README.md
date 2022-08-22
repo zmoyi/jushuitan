@@ -30,6 +30,7 @@ $config = [
 
 ```php
 use zmoyi\JuShuiTan\Api\ApiRequest;
+use zmoyi\JuShuiTan\Api\common\ServeHttp;
 
 $data = [
     'shop_id' => '123456'

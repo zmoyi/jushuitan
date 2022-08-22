@@ -1,23 +1,24 @@
 {
-    "name": "zmoyi/jushuitan",
-    "description": "聚水潭-php-sdk",
-    "type": "library",
-    "require": {
-        "php": ">=7.4.3",
-        "guzzlehttp/guzzle": "^7.0@dev",
-        "ext-json": "*"
-    },
-    "license": "MIT",
-    "autoload": {
-        "psr-4": {
-            "jushuitan\\": "src/"
-        }
-    },
-    "authors": [
-        {
-            "name": "墨子熙",
-            "email": "zmszm666@163.com"
-        }
-    ],
-    "minimum-stability": "dev"
+  "name": "zmoyi/jushuitan",
+  "description": "聚水潭-php-sdk",
+  "keywords": "[]",
+  "type": "library",
+  "require": {
+    "php": ">=7.4.3",
+    "guzzlehttp/guzzle": "^7.0@dev",
+    "ext-json": "*"
+  },
+  "license": "MIT",
+  "autoload": {
+    "psr-4": {
+      "Zmoyi\\JuShuiTan\\": "src/"
+    }
+  },
+  "authors": [
+    {
+      "name": "墨子熙",
+      "email": "zmszm666@163.com"
+    }
+  ],
+  "minimum-stability": "dev"
 }

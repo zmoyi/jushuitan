@@ -1,6 +1,6 @@
 <?php
 
-namespace jushuitan\Api\common;
+namespace zmoyi\JuShuiTan\Api\common;
 
 interface ServeHttp
 {

@@ -1,8 +1,8 @@
 <?php
 
-namespace jushuitan\Api\common;
+namespace zmoyi\JuShuiTan\Api\common;
 
-use jushuitan\JuShuiTan;
+use zmoyi\JuShuiTan\JuShuiTan;
 
 class Util
 {
@@ -18,34 +18,34 @@ class Util
     }
 
     /**
-     * @param $app_Secret
+     * @param $appSecret
      * @param array $biz
      * @return array
      */
-    public static function getParams($app_Secret, array $biz): array
+    public static function getParams($appSecret, array $biz): array
     {
         $data = self::$params;
         $data['biz'] = !empty($biz) ? json_encode($biz) : '{}';
-        $data['sign'] = self::get_sign($app_Secret, $data);
+        $data['sign'] = self::getSign($appSecret, $data);
         return $data;
     }
 
     /**
      * 生成签名
      */
-    public static function get_sign($app_Secret, $data): ?string
+    public static function getSign($appSecret, $data): ?string
     {
         if ($data == null) {
             return null;
         }
         ksort($data);
-        $result_str = "";
+        $resultStr = "";
         foreach ($data as $key => $val) {
             if ($key != null && $key != "" && $key != "sign") {
-                $result_str = $result_str . $key . $val;
+                $resultStr = $resultStr . $key . $val;
             }
         }
-        $result_str = $app_Secret . $result_str;
-        return bin2hex(md5($result_str, true));
+        $result_str = $appSecret . $resultStr;
+        return bin2hex(md5($resultStr, true));
     }
 }

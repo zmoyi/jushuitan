@@ -1,12 +1,12 @@
 <?php
 
-namespace jushuitan\Auth;
+namespace zmoyi\JuShuiTan\Auth;
 
 use Exception;
 use GuzzleHttp\Exception\GuzzleException;
-use jushuitan\Api\common\Client;
-use jushuitan\Api\common\Util;
-use jushuitan\JuShuiTan;
+use zmoyi\JuShuiTan\Api\common\Client;
+use zmoyi\JuShuiTan\Api\common\Util;
+use zmoyi\JuShuiTan\JuShuiTan;
 use Psr\Http\Message\StreamInterface;
 
 class Auth extends JuShuiTan
@@ -29,7 +29,7 @@ class Auth extends JuShuiTan
             'timestamp' => time(),
             'charset' => $this->getConfig()['charset']
         ];
-        $sign = Util::get_sign($this->getConfig()['app_Secret'],$data);
+        $sign = Util::getSign($this->getConfig()['app_Secret'],$data);
         return $this->getConfig()['authUrl'] .
             '?app_key=' . $data['app_key'] .
             '&timestamp=' . $data['timestamp'] .
@@ -55,7 +55,7 @@ class Auth extends JuShuiTan
             'charset' => $this->getConfig()['charset'],
             'code' => $code,
         ];
-        $data['sign'] = Util::get_sign($this->getConfig()['app_Secret'],$data);
+        $data['sign'] = Util::getSign($this->getConfig()['app_Secret'],$data);
         return Client::post($this->getAccessTokenUrl, $data);
     }
 
@@ -78,7 +78,7 @@ class Auth extends JuShuiTan
             'scope' => 'all',
         ];
 
-        $data['sign'] = Util::get_sign($this->getConfig()['app_Secret'],$data);
+        $data['sign'] = Util::getSign($this->getConfig()['app_Secret'],$data);
         return Client::post($this->refreshTokenUrl, $data);
     }
 }

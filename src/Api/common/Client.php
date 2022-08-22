@@ -1,6 +1,6 @@
 <?php
 
-namespace jushuitan\Api\common;
+namespace zmoyi\JuShuiTan\Api\common;
 
 use GuzzleHttp\Client as Clients;
 use GuzzleHttp\Exception\GuzzleException;
@@ -24,17 +24,13 @@ class Client
             ]
         ]);
         try {
-            $request = $client->request('POST', $url,[
+            $request = $client->post($url,[
                 'form_params' => $options
             ]);
             $contents = $request->getBody()->getContents();
             return json_decode($contents, true);
         } catch (GuzzleException $e) {
-            $response = [
-                'code' => $e->getCode(),
-                'msg' => $e->getMessage()
-            ];
-            return json_encode($response);
+            return json_encode($e);
         }
     }
 
@@ -53,6 +49,4 @@ class Client
     {
         return self::$url;
     }
-
-
 }

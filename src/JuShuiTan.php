@@ -1,6 +1,6 @@
 <?php
 
-namespace jushuitan;
+namespace Zmoyi\JuShuiTan;
 
 use GuzzleHttp\Client;
 
@@ -21,10 +21,11 @@ class JuShuiTan
     ];
 
     /**
+     * Snake
      * 公共请求参数
      * @var array|string[]
      */
-    protected array $public_request_params = [
+    protected array $publicRequestParams = [
         'app_key' => '',
         'access_token' => '',
         'timestamp' => '',
@@ -64,10 +65,9 @@ class JuShuiTan
      * @param array $config
      * @return JuShuiTan
      */
-    protected function setConfig(array $config): JuShuiTan
+    public function setConfig(array $config): JuShuiTan
     {
         if (isset($config['app_Key'], $config['app_Secret'], $config['baseUrl'],$config['access_token'])) {
-
             $this->config['access_token'] = $config['access_token'];
             $this->config['baseUrl'] = $config['baseUrl'];
             $this->config['app_Key'] = $config['app_Key'];
@@ -82,7 +82,7 @@ class JuShuiTan
      */
     public function getPublicRequestParams(): array
     {
-        return $this->public_request_params;
+        return $this->publicRequestParams;
     }
 
     /**
@@ -91,7 +91,7 @@ class JuShuiTan
     public function setPublicRequestParams(): JuShuiTan
     {
         if (isset($this->getConfig()['app_Key'], $this->getConfig()['access_token'])){
-            $this->public_request_params = [
+            $this->publicRequestParams = [
                'app_key' => $this->config['app_Key'],
                'access_token' =>  $this->config['access_token'],
                'timestamp' => time(),

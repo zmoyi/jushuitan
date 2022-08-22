@@ -1,11 +1,11 @@
 <?php
 
-namespace jushuitan\Api;
+namespace zmoyi\JuShuiTan\Api;
 
-use jushuitan\Api\common\BaseApi;
-use jushuitan\Api\common\Client;
-use jushuitan\Api\common\ServeHttp;
-use jushuitan\Api\common\Util;
+use zmoyi\JuShuiTan\Api\common\BaseApi;
+use zmoyi\JuShuiTan\Api\common\Client;
+use zmoyi\JuShuiTan\Api\common\ServeHttp;
+use zmoyi\JuShuiTan\Api\common\Util;
 
 class ApiRes extends BaseApi implements ServeHttp
 {

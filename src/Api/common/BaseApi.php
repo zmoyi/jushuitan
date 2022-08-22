@@ -1,8 +1,8 @@
 <?php
 
-namespace jushuitan\Api\common;
+namespace zmoyi\JuShuiTan\Api\common;
 
-use jushuitan\JuShuiTan;
+use zmoyi\JuShuiTan\JuShuiTan;
 
 class BaseApi extends JuShuiTan
 {
@@ -10,7 +10,7 @@ class BaseApi extends JuShuiTan
     {
         parent::setConfig($config);
         parent::setPublicRequestParams();
-        Util::setParams($this);
+        (new Util())->setParams($this);
         Client::setUrl($this->config['baseUrl']);
     }
 }

@@ -34,7 +34,7 @@ class Client
         },function (RequestException $exception){
             return $exception;
         });
-         return $promise->getState();
+         return $promise->wait();
     }
 
     /**

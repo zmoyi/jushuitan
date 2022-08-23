@@ -11,12 +11,12 @@ class Client
 {
     protected static string $url;
 
-    public static function post($url, $data): string
+    public static function post($url, $data)
     {
         return self::sendRequest($url, $data);
     }
 
-    private static function sendRequest($url, array $options): string
+    private static function sendRequest($url, array $options)
     {
         $client = new Clients([
             'base_uri' => self::getUrl(),
@@ -29,12 +29,13 @@ class Client
         $request = $client->postAsync($url, [
             'form_params' => $options
         ]);
-         $promise =  $request->then(function (ResponseInterface $request){
-            return $request->getBody()->getContents();
-        },function (RequestException $exception){
-            return $exception;
+        $promise = $request->then(function (ResponseInterface $request) {
+            $contents = $request->getBody()->getContents();
+            return json_decode($contents, true);
+        }, function (RequestException $exception) {
+            return json_encode($exception);
         });
-         return $promise->wait();
+        return $promise->wait();
     }
 
     /**

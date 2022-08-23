@@ -33,7 +33,7 @@ class Client
             return $request->getBody()->getContents();
         },function (RequestException $exception){
             return $exception;
-        });
+        })->wait();
 
     }
 

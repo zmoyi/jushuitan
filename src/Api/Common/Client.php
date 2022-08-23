@@ -4,19 +4,19 @@ namespace zmoyi\JuShuiTan\Api\Common;
 
 use GuzzleHttp\Client as Clients;
 use GuzzleHttp\Exception\RequestException;
+use GuzzleHttp\Promise\PromiseInterface;
 use Psr\Http\Message\ResponseInterface;
 
 class Client
 {
     protected static string $url;
-    protected static  $data;
 
-    public static function post($url, $data)
+    public static function post($url, $data): PromiseInterface
     {
         return self::sendRequest($url, $data);
     }
 
-    private static function sendRequest($url, array $options)
+    private static function sendRequest($url, array $options): PromiseInterface
     {
         $client = new Clients([
             'base_uri' => self::getUrl(),
@@ -29,13 +29,11 @@ class Client
         $request = $client->postAsync($url, [
             'form_params' => $options
         ]);
-        $request->then(function (ResponseInterface $request) {
-            $contents = $request->getBody()->getContents();
-            self::$data = json_decode($contents, true);
-        }, function (RequestException $e) {
-            self::$data = $e;
+        return $request->then(function (ResponseInterface $request){
+            return $request->getBody()->getContents();
+        },function (RequestException $exception){
+            return $exception;
         });
-        return self::$data;
 
     }
 

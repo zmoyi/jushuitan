@@ -4,18 +4,14 @@ namespace zmoyi\JuShuiTan\Auth;
 
 use Exception;
 use GuzzleHttp\Exception\GuzzleException;
+use zmoyi\JuShuiTan\Api\Common\BaseApi;
 use zmoyi\JuShuiTan\Api\Common\Client;
 use zmoyi\JuShuiTan\Api\Common\Util;
 use zmoyi\JuShuiTan\JuShuiTan;
 use Psr\Http\Message\StreamInterface;
 
-class Auth extends JuShuiTan
+class Auth extends BaseApi
 {
-    public function __construct($config)
-    {
-        parent::setConfig($config);
-    }
-
     /**
      * 生成授权链接
      * @fun createUrl

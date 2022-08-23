@@ -11,12 +11,12 @@ class Client
 {
     protected static string $url;
 
-    public static function post($url, $data)
+    public static function post($url, $data):array
     {
         return self::sendRequest($url, $data);
     }
 
-    private static function sendRequest($url, array $options)
+    private static function sendRequest($url, array $options):array
     {
         $client = new Clients([
             'base_uri' => self::getUrl(),
@@ -33,7 +33,7 @@ class Client
             $contents = $request->getBody()->getContents();
             return json_decode($contents, true);
         }, function (RequestException $exception) {
-            return json_encode($exception);
+            return json_decode(json_encode($exception),true);
         });
         return $promise->wait();
     }

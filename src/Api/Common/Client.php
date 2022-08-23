@@ -29,12 +29,11 @@ class Client
         $request = $client->postAsync($url, [
             'form_params' => $options
         ]);
-        return $request->then(function (ResponseInterface $request){
+         return $request->then(function (ResponseInterface $request){
             return $request->getBody()->getContents();
         },function (RequestException $exception){
             return $exception;
-        })->wait();
-
+        });
     }
 
     /**

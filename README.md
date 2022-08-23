@@ -3,6 +3,7 @@
 [![Latest Stable Version](http://poser.pugx.org/zmoyi/jushuitan/v)](https://packagist.org/packages/zmoyi/jushuitan) [![Total Downloads](http://poser.pugx.org/zmoyi/jushuitan/downloads)](https://packagist.org/packages/zmoyi/jushuitan) [![Latest Unstable Version](http://poser.pugx.org/zmoyi/jushuitan/v/unstable)](https://packagist.org/packages/zmoyi/jushuitan) [![License](http://poser.pugx.org/zmoyi/jushuitan/license)](https://packagist.org/packages/zmoyi/jushuitan) [![PHP Version Require](http://poser.pugx.org/zmoyi/jushuitan/require/php)](https://packagist.org/packages/zmoyi/jushuitan)
 
 聚水潭的php-sdk
+
 ## 要求
 - php>=7.4.3
 

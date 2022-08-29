@@ -38,11 +38,11 @@ class Auth extends BaseApi
      * 获取访问令牌
      * @fun getAccessToken
      * @param $code
-     * @return Exception|GuzzleException|StreamInterface
+     * @return array
      * @date 2022/8/20
      * @author 刘铭熙
      */
-    public function getAccessToken($code)
+    public function getAccessToken($code): array
     {
         $data = [
             'app_key' => $this->getConfig()['app_Key'],
@@ -59,11 +59,11 @@ class Auth extends BaseApi
      * 更新授权令牌
      * @fun refreshToken
      * @param $refresh_token
-     * @return Exception|GuzzleException|StreamInterface
+     * @return array
      * @date 2022/8/20
      * @author 刘铭熙
      */
-    public function refreshToken($refresh_token)
+    public function refreshToken($refresh_token): array
     {
         $data = [
             'app_key' => $this->getConfig()['app_Key'],

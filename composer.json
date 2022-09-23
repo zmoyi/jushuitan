@@ -5,7 +5,7 @@
   "type": "library",
   "require": {
     "php": ">=7.4.3",
-    "guzzlehttp/guzzle": "^7.0@dev",
+    "guzzlehttp/guzzle": "dev-master",
     "ext-json": "*"
   },
   "license": "MIT",

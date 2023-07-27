@@ -43,7 +43,7 @@ class JuShuiTan
      * 定义获取access—token Url
      * @var string
      */
-    protected string $getAccessTokenUrl = 'https://openapi.jushuitan.com/openWeb/auth/accessToken';
+    protected string $getAccessTokenUrl = 'https://openapi.jushuitan.com/openWeb/auth/getInitToken';
 
     /**
      * 定义refresh-token地址

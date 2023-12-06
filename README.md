@@ -7,6 +7,7 @@
 聚水潭的php-sdk
 
 ## 要求
+
 - php>=7.4.3
 
 ## 安装
@@ -47,6 +48,7 @@ $response = $apiRequest->request(ServeHttp::QUERY_SKUMAP,$data);
 ```
 
 ### auth调用
+
 ```php
 use zmoyi\JuShuiTan\Auth\Auth;
 /**
@@ -359,5 +361,12 @@ $refToken = $Auth->refreshToken($accessToken);
     const UPLOAD_ALLOCATE_IN = '/open/jushuitan/allocate/in/upload';
 
 ```
+
 ## 开源协议
+
 遵循MIT开源协议
+
+## 使用交流
+
+![QQ](WechatIMG1.jpg)
+

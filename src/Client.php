@@ -7,7 +7,7 @@ use JsTan\http\Http;
 
 class Client extends JsTanInit
 {
-    private static Client $instance;
+    private static ?Client $instance = null;
 
     /**
      * @param string $url
@@ -20,8 +20,7 @@ class Client extends JsTanInit
         $http = Http::getInstance($config)->getClient();
         try {
             $response = $http->post(
-                $url,
-                [
+                $url,[
                     'form_params' => $data
                 ]
             );
@@ -80,7 +79,7 @@ class Client extends JsTanInit
             'code' => $code,
         ];
         $data['sign'] = Util::getSign($this->getConfig()['app_Secret'],$data);
-        return $this->request($this->getConfig()['apiUrl']. '/getInitToken', $data);
+        return $this->request($this->getConfig()['apiUrl']. 'openWeb/auth/getInitToken', $data);
     }
 
     /**
@@ -100,7 +99,7 @@ class Client extends JsTanInit
         ];
 
         $data['sign'] = Util::getSign($this->getConfig()['app_Secret'],$data);
-        return $this->request($this->getConfig()['apiUrl']. '/refreshToken', $data);
+        return $this->request($this->getConfig()['apiUrl']. 'openWeb/auth/refreshToken', $data);
     }
 
 
@@ -112,7 +111,7 @@ class Client extends JsTanInit
      */
     public static function getInstance(array $config = []): Client
     {
-        if(self::$instance == null){
+        if(self::$instance == null ||self::$instance->getConfig() !== $config ){
             self::$instance = new self($config);
         }
         return self::$instance;

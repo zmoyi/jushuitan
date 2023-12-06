@@ -75,8 +75,8 @@ class JsTanInit
             }
         }
         $this->publicRequestParams = [
-            'app_Key' => $config['app_Key'],
-            'access_token' => $config['access_token'],
+            'app_key' => $config['appKey'],
+            'access_token' => $config['accessToken'],
             'timestamp' => time(),
             'charset' => $config['charset'],
             'version' => $config['version']

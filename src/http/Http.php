@@ -9,7 +9,7 @@ class Http
     /**
      * 储存实例
      */
-    private static Http $instance;
+    private static ?Http $instance = null;
 
     /**
      * @var Client
@@ -20,11 +20,12 @@ class Http
     public function __construct($config = [])
     {
         $this->client = new Client([
-            'base_uri' => $config['base_uri']?? '',
+            'base_uri' => $config['baseUrl']?? '',
             'verify' => $config['verify']?? false,
             'headers' => [
                 'Content-Type' => 'application/x-www-form-urlencoded;charset=UTF-8'
-            ]
+            ],
+            'connect_timeout' => $config['timeout']??3.14
         ]);
     }
 

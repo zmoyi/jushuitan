@@ -3,7 +3,7 @@
 ### 已升级 SDK，此版本不在维护，望周知
 ### 请移步 [https://github.com/zmoyi/JsTan](https://github.com/zmoyi/JsTan)
 
-[![Latest Stable Version](http://poser.pugx.org/zmoyi/jushuitan/v)](https://packagist.org/packages/zmoyi/jushuitan) [![Total Downloads](http://poser.pugx.org/zmoyi/jushuitan/downloads)](https://packagist.org/packages/zmoyi/jushuitan) [![License](http://poser.pugx.org/zmoyi/jushuitan/license)](https://packagist.org/packages/zmoyi/jushuitan) [![PHP Version Require](http://poser.pugx.org/zmoyi/jushuitan/require/php)](https://packagist.org/packages/zmoyi/jushuitan)
+[![Latest Stable Version](https://poser.pugx.org/zmoyi/jushuitan/v)](https://packagist.org/packages/zmoyi/jushuitan) [![Total Downloads](https://poser.pugx.org/zmoyi/jushuitan/downloads)](https://packagist.org/packages/zmoyi/jushuitan) [![License](https://poser.pugx.org/zmoyi/jushuitan/license)](https://packagist.org/packages/zmoyi/jushuitan) [![PHP Version Require](https://poser.pugx.org/zmoyi/jushuitan/require/php)](https://packagist.org/packages/zmoyi/jushuitan)
 
 聚水潭的php-sdk
 
